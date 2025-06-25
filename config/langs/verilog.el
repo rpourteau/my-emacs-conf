@@ -6,4 +6,5 @@
 (use-package verilog-mode
   :custom
   (verilog-auto-endcomments nil)
-  (verilog-auto-newline nil))
+  (verilog-auto-newline nil)
+  (verilog-basic-offset 4))
