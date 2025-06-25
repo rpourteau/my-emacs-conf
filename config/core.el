@@ -48,7 +48,6 @@
 (global-set-key (kbd "C-z") 'undo)   ;; Bind C-Z to undo
 (setq use-short-answers t)
 
-
 ;; UTF-8 everywhere
 (set-language-environment "UTF-8")
 
@@ -62,14 +61,6 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-;; Custom tabs and indent for different languages
-;;
-
-
-;;(setq sh-basic-offset 3)
-;;(setq sh-indentation 3)
-;;(setq-default c-basic-offset 4)
-;;(setq-default python-basic-offset 3)
 
 ;;**********************************************************************
 ;; Auto complete
