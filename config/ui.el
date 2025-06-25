@@ -11,6 +11,8 @@
   :custom ((doom-modeline-height 15)))
 
 
+(set-face-attribute 'default nil :family "Courier New" :height 100)
+
 (use-package all-the-icons
   :ensure t)
 
