@@ -31,6 +31,7 @@
         (load (expand-file-name (format "config/%s" module) user-emacs-directory)))
       '("core"
         "ui"
+        "completion"
         "legacy"
         "windowsos"
         "langs/markdown"
