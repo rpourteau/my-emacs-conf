@@ -37,6 +37,7 @@
         "langs/markdown"
         "langs/python"
         "langs/shell"
+        "langs/systemrdl"
         "langs/tcl"
         "langs/verilog"
         "langs/vhdl"

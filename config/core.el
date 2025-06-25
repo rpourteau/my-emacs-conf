@@ -34,7 +34,6 @@
 ;;**********************************************************************
 ;; Emacs configuration
 ;;**********************************************************************
-
 (add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook) (defun my-ibuffer-mode-hook () (text-scale-set -2))
 
 (menu-bar-mode 1)                    ;; Menu bar
@@ -60,29 +59,3 @@
 ;; Enable downcase-region and upcase-region function
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
-
-
-;;**********************************************************************
-;; Auto complete
-;;**********************************************************************
-;;(use-package yasnippet
-;;  :ensure t
-;;  :config
-;;    (yas-global-mode 1)
-;;  :pin gnu
-;;)
-;;
-;;(use-package auto-complete
-;;  :ensure t
-;;  :config
-;;  (progn
-;;    (require 'auto-complete-config)
-;;    (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-;;    (ac-config-default)
-;;    (ac-set-trigger-key "TAB")
-;;    (ac-set-trigger-key "<tab>"))
-;;  :pin melpa
-;;)
-;;
-;;(setq ac-auto-start nil)
-;;
