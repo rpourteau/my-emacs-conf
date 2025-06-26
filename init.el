@@ -25,20 +25,33 @@
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
 ;;**********************************************************************
-;; Load modular config
+;; Load modular config (common modules)
 ;;**********************************************************************
-(mapc (lambda (module)
-        (load (expand-file-name (format "config/%s" module) user-emacs-directory)))
+(setq my/common-modules
       '("core"
         "ui"
         "completion"
         "legacy"
-        "windowsos"
         "langs/markdown"
         "langs/python"
         "langs/shell"
         "langs/systemrdl"
         "langs/tcl"
         "langs/verilog"
-        "langs/vhdl"
-        ))
+        "langs/vhdl"))
+
+;;**********************************************************************
+;; Add OS-specific modules
+;;**********************************************************************
+(setq my/os-specific-modules
+      (cond
+       ((eq system-type 'windows-nt) '("windowsos"))
+       ((eq system-type 'gnu/linux)  '("linuxos"))
+       ((eq system-type 'darwin)     '("macos"))))
+
+;;**********************************************************************
+;; Load everything
+;;**********************************************************************
+(mapc (lambda (module)
+        (load (expand-file-name (format "config/%s" module) user-emacs-directory)))
+      (append my/common-modules my/os-specific-modules))
