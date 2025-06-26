@@ -36,7 +36,7 @@
 ;;**********************************************************************
 (add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook) (defun my-ibuffer-mode-hook () (text-scale-set -2))
 
-(menu-bar-mode 1)                    ;; Menu bar
+(menu-bar-mode -1)                   ;; Menu bar
 (tool-bar-mode -1)                   ;; Tool bar
 (scroll-bar-mode -1)                 ;; Scroll bar
 (column-number-mode)                 ;; Show column number as well
