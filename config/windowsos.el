@@ -8,6 +8,11 @@
   :config
   (setq ag-executable "C:/ag/ag.exe"))
 
+;; Dired+
+(use-package dired+
+  :load-path "lisp/"
+  :config
+  (diredp-toggle-find-file-reuse-dir 1))
 
 ;;;; Tramp config
 ;;(setq tramp-default-method "ssh"
