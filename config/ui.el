@@ -1,4 +1,4 @@
-;;**********************************************************************
+1;;**********************************************************************
 ;; ui.el -- ;; Doom Theme and modeline
 ;;**********************************************************************
 
@@ -11,7 +11,7 @@
   :custom ((doom-modeline-height 15)))
 
 
-(set-face-attribute 'default nil :family "Courier New" :height 100)
+(set-face-attribute 'default nil :family "Courier New" :height 110)
 
 (use-package all-the-icons
   :ensure t)
