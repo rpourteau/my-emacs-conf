@@ -31,6 +31,12 @@
            (and (get-buffer buffer)
                 (kill-buffer buffer)))))
 
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (when (get-buffer "*straight-process*")
+              (kill-buffer "*straight-process*"))))
+
+
 ;;**********************************************************************
 ;; Emacs configuration
 ;;**********************************************************************
