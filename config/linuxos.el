@@ -24,7 +24,7 @@
 (global-set-key (kbd "C-c t") #'my-term)
 
 ;;**********************************************************************
-;; ansi-term
+;; eshel improvement
 ;;**********************************************************************
 (defun eshell-load-bash-aliases ()
   "Read Bash aliases and add them to the list of eshell aliases."
