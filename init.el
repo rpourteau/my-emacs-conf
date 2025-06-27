@@ -21,37 +21,62 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
+;; Disable native comp for straight packages
+(with-eval-after-load 'straight
+  (setq straight--native-comp-available-p nil))
+
+
+;;**********************************************************************
+;; Helper functions for OS specific features
+;;**********************************************************************
+
+(defmacro when-linux (&rest body)
+  `(when (eq system-type 'gnu/linux)
+     ,@body))
+
+(defmacro when-windows (&rest body)
+  `(when (eq system-type 'windows-nt)
+     ,@body))
+
+(defmacro when-mac (&rest body)
+  `(when (eq system-type 'darwin)
+     ,@body))
+
+
 ;; Add 'config/' to load path
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
 ;;**********************************************************************
-;; Load modular config (common modules)
-;;**********************************************************************
-(setq my/common-modules
-      '("core"
-        "ui"
-        "completion"
-        "legacy"
-        "langs/markdown"
-        "langs/python"
-        "langs/shell"
-        "langs/systemrdl"
-        "langs/tcl"
-        "langs/verilog"
-        "langs/vhdl"))
-
-;;**********************************************************************
-;; Add OS-specific modules
-;;**********************************************************************
-(setq my/os-specific-modules
-      (cond
-       ((eq system-type 'windows-nt) '("windowsos"))
-       ((eq system-type 'gnu/linux)  '("linuxos"))
-       ((eq system-type 'darwin)     '("macos"))))
-
-;;**********************************************************************
-;; Load everything
+;; Load modular config
 ;;**********************************************************************
 (mapc (lambda (module)
         (load (expand-file-name (format "config/%s" module) user-emacs-directory)))
-      (append my/common-modules my/os-specific-modules))
+      (append
+       '("core"
+         "ui"
+         "completion"
+         "legacy"
+         "langs/markdown"
+         "langs/python"
+         "langs/shell"
+         "langs/systemrdl"
+         "langs/tcl"
+         "langs/verilog"
+         "langs/vhdl")))
+
+
+;; OS-specific modules
+(when-linux
+  (mapc (lambda (module)
+          (load (expand-file-name (format "config/%s" module) user-emacs-directory)))
+        '("linuxos")))
+
+(when-windows
+  (mapc (lambda (module)
+          (load (expand-file-name (format "config/%s" module) user-emacs-directory)))
+        '("windowsos")))
+
+(when-mac
+  (mapc (lambda (module)
+          (load (expand-file-name (format "config/%s" module) user-emacs-directory)))
+        '("macos")))
