@@ -4,4 +4,8 @@ straight/
 eln-cache/
 transient/
 eshell/
+
+.cache/
+tramp
+
 projectile-bookmarks.eld
