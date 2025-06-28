@@ -39,3 +39,22 @@
 ;; We only want Bash aliases to be loaded when Eshell loads its own aliases,
 ;; rather than every time `eshell-mode' is enabled.
 (add-hook 'eshell-alias-load-hook 'eshell-load-bash-aliases)
+
+
+;;**********************************************************************
+;; Project management and minibuffer enhancement
+;;**********************************************************************
+(use-package projectile
+  :init (projectile-mode +1)
+  :bind-keymap
+  ("C-c p" . projectile-command-map))
+
+(use-package ivy
+  :init (ivy-mode 1)
+  :config
+  (setq ivy-use-virtual-buffers t
+        ivy-count-format "(%d/%d) "))
+
+(use-package counsel
+  :after ivy
+  :config (counsel-mode))
