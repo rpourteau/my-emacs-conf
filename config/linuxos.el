@@ -40,7 +40,6 @@
 ;; rather than every time `eshell-mode' is enabled.
 (add-hook 'eshell-alias-load-hook 'eshell-load-bash-aliases)
 
-
 ;;**********************************************************************
 ;; Project management and minibuffer enhancement
 ;;**********************************************************************
@@ -58,3 +57,10 @@
 (use-package counsel
   :after ivy
   :config (counsel-mode))
+
+(use-package counsel-projectile
+  :after (counsel projectile)
+  :config (counsel-projectile-mode))
+
+(use-package treemacs
+  :bind ("C-x t t" . treemacs))
